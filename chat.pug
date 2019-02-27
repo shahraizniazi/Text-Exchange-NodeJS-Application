@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	
+	head
+		title Chat Room
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel ="stylesheet", href = "/stylesheets/style.css")
+		script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+		script(src="/javascripts/bootstrap.js")
+		script(src="/socket.io/socket.io.js")
+		script(src ="/javascripts/chat.js")
+	
+	body
+		.container
+			.row
+				.col-md-8
+					#error
+					#userFormWrap
+						h1 Create Username
+						form#userFormWrap
+							input#username.form-control(type="text", placeholder="Enter Username..")
+							br
+							button.btn.btn-default(type="submit") Submit
+					#mainWrap
+						h1 Chat - Speak your mind
+						form#chatForm
+							.form-group
+								textarea#chatInput.form-control(name="body", placeholder="Say Something...")
+								br
+								button.btn.btn-default(type="submit") Submit
+								br
+								br
+							#chatWindow.well
+				.col-md-4
+					h3 Chat Users
+					ul.list-group
+						#chatusers

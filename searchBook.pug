@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	h2.page-header Search Book
+	p Please search a book using the form below
+	ul.errors
+		if errors
+			each error, i in errors
+				li.alert.alert-danger #{error.msg} 
+	
+		
+			
+	form(method='POST', action ='/users/searchBook', enctype='multipart/form-data')
+		.form-group
+			label Name
+			input.form-control(name='name',type='text', placeholder='Enter Book Name')
+		.form-group
+			label Author
+			input.form-control(name='nameAuthor',type='text', placeholder='Enter Author Name')
+		
+		
+		input.btn.btn-primary(type='submit', name='submit', value='Search') 
+	<br></br>
+	
+	ul
+		if book 
+			li Email of the person who has it:  #{book.email}
+
+		
